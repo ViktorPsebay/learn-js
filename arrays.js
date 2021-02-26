@@ -57,11 +57,15 @@ function Calculator() {
 }
 
 function sortByAge(users) {
-  users.sort((a, b) => a.age - b.age);
+  let arr = [...users];
+  arr.sort((a, b) => a.age - b.age);
+  return arr;
 }
 
 function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+  let arr = [...array];
+  arr.sort(() => Math.random() - 0.5);
+  return arr;
 }
 
 function getAverageAge(users) {
