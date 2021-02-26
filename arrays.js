@@ -81,3 +81,25 @@ function unique(arr) {
   });
   return resultArr;
 }
+
+function getMaxSubSum(arr) {
+    let start = 0;
+    let end = arr.length;
+    let sum = sliceArray(arr, start, end, sumArray(arr, start, end))
+    return sum;
+}
+
+function sumArray(arr, start, end) {
+    let sum = 0;
+    for (let i = start; i < end; ++i) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+function sliceArray(arr, start, end, sum) {
+    if (end - start > 1) sum = sliceArray(arr, start + 1, end, sum);
+    if (end - start > 1) sum = sliceArray(arr, start, end - 1, sum);
+    return sumArray(arr, start, end) > sum ? sumArray(arr, start, end) : sum;
+}
+
